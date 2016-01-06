@@ -1,4 +1,4 @@
-package ctci.chapter1.q3;
+package ctci.chapter1ArraysAndStrings.q3;
 
 import java.util.Arrays;
 

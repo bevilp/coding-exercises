@@ -1,4 +1,4 @@
-package ctci.chapter1.q4;
+package ctci.chapter1ArraysAndStrings.q4;
 
 import org.junit.Assert;
 import org.junit.Test;
