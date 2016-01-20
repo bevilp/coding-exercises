@@ -17,29 +17,29 @@ public class q1 {
     * */
 
     public static void main(String[] args) {
-        Node node1 = new Node(1);
-        node1.addAdjacentNode(new Node(2));
-        node1.addAdjacentNode(new Node(3));
-        node1.addAdjacentNode(new Node(4));
-        Node node4 = new Node(5);
-        // node1.addAdjacentNode(node4);
-        Node node2 = new Node(6);
-        node4.addAdjacentNode(node2);
-        System.out.println(BFSSearch(node1, node2));
+        GraphNode graphNode1 = new GraphNode(1);
+        graphNode1.addAdjacentNode(new GraphNode(2));
+        graphNode1.addAdjacentNode(new GraphNode(3));
+        graphNode1.addAdjacentNode(new GraphNode(4));
+        GraphNode graphNode4 = new GraphNode(5);
+        // graphNode1.addAdjacentNode(graphNode4);
+        GraphNode graphNode2 = new GraphNode(6);
+        graphNode4.addAdjacentNode(graphNode2);
+        System.out.println(BFSSearch(graphNode1, graphNode2));
     }
 
-    public static boolean BFSSearch(Node root, Node searched) {
-        Deque<Node> queue = new ArrayDeque<>();
+    public static boolean BFSSearch(GraphNode root, GraphNode searched) {
+        Deque<GraphNode> queue = new ArrayDeque<>();
         queue.add(root);
         while (!queue.isEmpty()) {
-            Node node = queue.pop();
-            node.visited = true;
-            if (node.equals(searched)) {
+            GraphNode graphNode = queue.pop();
+            graphNode.visited = true;
+            if (graphNode.equals(searched)) {
                 return true;
             }
             // get only the nodes which haven't been visited yet in order to avoid cycles.
-            node.adjacentNodes.parallelStream().filter(node1 -> !node.visited).forEach(node2 -> queue.add(node2));
-            queue.addAll(node.adjacentNodes);
+            graphNode.adjacentGraphNodes.parallelStream().filter(node1 -> !graphNode.visited).forEach(node2 -> queue.add(node2));
+            queue.addAll(graphNode.adjacentGraphNodes);
         }
         return false;
     }
